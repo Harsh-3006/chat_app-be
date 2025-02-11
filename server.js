@@ -5,10 +5,10 @@ import authRoutes from './Routes/authRoutes.js'
 import messageRoutes from './Routes/messageRoutes.js'
 import userRoutes from './Routes/userRoutes.js'
 import cookieParser from 'cookie-parser'
-import { app, server } from './socket/socket.js'
+import {server } from './socket/socket.js'
 import cors from 'cors'
+const app=express()
 app.use(cors())
-// const app=express()
 
 dotenv.config()
 const PORT=process.env.PORT
@@ -17,11 +17,7 @@ app.use(cookieParser())
 console.log(process.env.PORT)
 
 
-app.use(cors({
-    origin: ['http://localhost:3000', 'https://chatapp-be-production.up.railway.app'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true // Allow cookies & authentication headers
-}));
+app.use(cors());
 
 app.use('/api/auth',authRoutes)
 app.use('/api/message',messageRoutes)
