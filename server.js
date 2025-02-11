@@ -6,8 +6,8 @@ import messageRoutes from './Routes/messageRoutes.js'
 import userRoutes from './Routes/userRoutes.js'
 import cookieParser from 'cookie-parser'
 import { app, server } from './socket/socket.js'
-// import cors from 'cors'
-// app.use(cors())
+import cors from 'cors'
+app.use(cors())
 // const app=express()
 
 dotenv.config()

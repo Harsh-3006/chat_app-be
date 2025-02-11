@@ -51,7 +51,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: ['http://localhost:3000'], // Ensure your frontend URL is allowed
+        origin: ['http://localhost:3000','https://chatapp-be-production.up.railway.app'], // Ensure your frontend URL is allowed
         methods: ['GET', 'POST']
     }
 });
