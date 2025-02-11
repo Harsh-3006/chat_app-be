@@ -19,6 +19,9 @@ console.log(process.env.PORT)
 app.use('/api/auth',authRoutes)
 app.use('/api/message',messageRoutes)
 app.use('/api/user',userRoutes)
+app.get('/test',(req,res)=>{
+    res.status(200).json("test complete")
+})
 
 
 // app.get('/',(req,res)=>{
