@@ -1,6 +1,6 @@
 import mongoose  from "mongoose";
 const conn=()=>{
-    mongoose.connect('mongodb://localhost:27017/Chatting-app')
+    mongoose.connect(process.env.MONGODB_CONN)
     .then(()=>{
         console.log("Connected to mongodb")
     }).catch((error)=>{

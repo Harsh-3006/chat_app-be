@@ -10,10 +10,11 @@ import { app, server } from './socket/socket.js'
 // app.use(cors())
 // const app=express()
 
-const PORT=5000
+dotenv.config()
+const PORT=process.env.PORT
 app.use(express.json())
 app.use(cookieParser())
-dotenv.config()
+console.log(process.env.PORT)
 
 app.use('/api/auth',authRoutes)
 app.use('/api/message',messageRoutes)
