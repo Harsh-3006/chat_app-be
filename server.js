@@ -16,6 +16,13 @@ app.use(express.json())
 app.use(cookieParser())
 console.log(process.env.PORT)
 
+
+app.use(cors({
+    origin: ['http://localhost:3000', 'https://chatapp-be-production.up.railway.app'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true // Allow cookies & authentication headers
+}));
+
 app.use('/api/auth',authRoutes)
 app.use('/api/message',messageRoutes)
 app.use('/api/user',userRoutes)
