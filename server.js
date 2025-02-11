@@ -5,15 +5,15 @@ import authRoutes from './Routes/authRoutes.js';
 import messageRoutes from './Routes/messageRoutes.js';
 import userRoutes from './Routes/userRoutes.js';
 import cookieParser from 'cookie-parser';
-import { server } from './socket/socket.js';
-import cors from 'cors';
+import { server,app } from './socket/socket.js';
+// import cors from 'cors';
 
 dotenv.config();
-const app = express();
+// const app = express();
 const PORT = process.env.PORT;
 
 // ✅ Apply CORS before defining routes
-app.use(cors());
+// app.use(cors());
 
 app.use(express.json());
 app.use(cookieParser());
