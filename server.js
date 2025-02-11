@@ -10,7 +10,7 @@ import { server,app } from './socket/socket.js';
 
 dotenv.config();
 // const app = express();
-const PORT = process.env.PORT;
+// const PORT = process.env.PORT;
 
 // ✅ Apply CORS before defining routes
 // app.use(cors());
@@ -26,7 +26,8 @@ app.get('/test', (req, res) => {
     res.status(200).json("test complete");
 });
 
-server.listen(PORT, () => {
-    conn();
-    console.log(`Listening on port ${PORT}`);
+const PORT = process.env.PORT || 5000; // ✅ Ensure Railway assigns the port dynamically
+server.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running on port ${PORT}`);
 });
+
