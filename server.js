@@ -13,11 +13,7 @@ const app = express();
 const PORT = process.env.PORT;
 
 // ✅ Apply CORS before defining routes
-app.use(cors({
-    origin: ['http://localhost:3000', 'https://chatapp-be-production.up.railway.app'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
-}));
+app.use(cors());
 
 app.use(express.json());
 app.use(cookieParser());
