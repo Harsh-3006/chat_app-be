@@ -45,7 +45,7 @@ router.post("/signup",async (req,res)=>{
 
     } catch (error) {
         console.log(error)
-        res.status(500).json({error:"Internal server error"})
+        res.status(500).json({error:"Internal server error from user signup"})
     }
 })
 
@@ -78,7 +78,7 @@ router.post("/signin",async(req,res)=>{
 
     } catch (error) {
         console.log(error)
-        res.status(500).json({error:"Internal server error"})
+        res.status(500).json({error:"Internal server error from user signin"})
     }
 })
 
