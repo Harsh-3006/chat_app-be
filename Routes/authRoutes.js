@@ -45,7 +45,7 @@ router.post("/signup",async (req,res)=>{
             fullname:newUser.fullname,
             username:newUser.username,
             profilePic:newUser.profilePic,
-            auth:token
+            // auth:token
         })
 
     } catch (error) {
