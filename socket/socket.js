@@ -51,8 +51,10 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: ['http://localhost:3000','http://localhost:5173'], // Ensure your frontend URL is allowed
-        methods: ['GET', 'POST']
+        origin: '*', // Allow all origins
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'], // Allow all methods
+        allowedHeaders: ['*'], // Allow all headers
+        credentials: true // Allow cookies/auth if needed
     }
 });
 
