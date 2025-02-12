@@ -11,13 +11,8 @@ import cors from 'cors'
 
 
 
-const allowedOrigins = ['http://localhost:3000', 'https://your-frontend-domain.com'];
-app.use(cors({
-    origin: allowedOrigins,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-    allowedHeaders: ['Content-Type": "application/json'], // Allow all headers
-    credentials: true // ✅ Allows cookies & auth headers
-}));
+// const allowedOrigins = ['http://localhost:3000', 'https://your-frontend-domain.com'];
+app.use(cors());
 
 const PORT=5000
 app.use(express.json())
