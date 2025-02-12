@@ -31,10 +31,11 @@ router.post("/signup",async (req,res)=>{
             gender,
             profilePic:gender==='male'?boyProfilePic:girlProfilePic
         })
-        await newUser.save()
-
+        
         //genereate jwt token
         generateTokenAndSetCookie(newUser._id,res)
+        await newUser.save()
+
         
         res.status(201).json({
             _id:newUser._id,
@@ -45,7 +46,7 @@ router.post("/signup",async (req,res)=>{
 
     } catch (error) {
         console.log(error)
-        res.status(500).json({error:"Internal server error from user signup"})
+        res.status(500).json({error:"Internal server error from user signup",error})
     }
 })
 
@@ -78,7 +79,7 @@ router.post("/signin",async(req,res)=>{
 
     } catch (error) {
         console.log(error)
-        res.status(500).json({error:"Internal server error from user signin"})
+        res.status(500).json({error:"Internal server error from user signin",error})
     }
 })
 

@@ -12,7 +12,7 @@ router.get("/hello",protectRoute,async(req,res)=>{
         res.status(200).json(alluser)
     } catch (error) {
         console.log(error)
-        res.status(500).json({error:"Internal server error from userroute"})
+        res.status(500).json({error:"Internal server error from userroute",error})
     }
 })
 
