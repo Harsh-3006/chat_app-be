@@ -5,10 +5,10 @@ import authRoutes from './Routes/authRoutes.js'
 import messageRoutes from './Routes/messageRoutes.js'
 import userRoutes from './Routes/userRoutes.js'
 import cookieParser from 'cookie-parser'
+const app=express()
 import { app, server } from './socket/socket.js'
 // import cors from 'cors'
-// app.use(cors())
-// const app=express()
+app.use(cors())
 
 const PORT=5000
 app.use(express.json())
