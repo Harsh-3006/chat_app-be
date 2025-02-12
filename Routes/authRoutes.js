@@ -32,7 +32,7 @@ router.post("/signup",async (req,res)=>{
             password:hashpassword,
             gender,
             profilePic:gender==='male'?boyProfilePic:girlProfilePic,
-            auth:token
+            // auth:tokenjhj
         })
         
         //genereate jwt token
