@@ -15,6 +15,9 @@ app.use(express.json())
 app.use(cookieParser())
 dotenv.config()
 
+app.get('test',(req,res)=>{
+    return res.status(200).json({message:"Test completed"})
+})
 app.use('/api/auth',authRoutes)
 app.use('/api/message',messageRoutes)
 app.use('/api/user',userRoutes)
