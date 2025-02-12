@@ -53,7 +53,7 @@ const io = new Server(server, {
     cors: {
         origin: ['http://localhost:3000', 'https://your-frontend-domain.com'], // Allow all origins
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'], // Allow all methods
-        allowedHeaders: ['*'], // Allow all headers
+        allowedHeaders: ['Content-Type": "application/json'], // Allow all headers
         credentials: true // Allow cookies/auth if needed
     }
 });

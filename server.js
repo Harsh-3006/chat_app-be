@@ -15,6 +15,7 @@ const allowedOrigins = ['http://localhost:3000', 'https://your-frontend-domain.c
 app.use(cors({
     origin: allowedOrigins,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type": "application/json'], // Allow all headers
     credentials: true // ✅ Allows cookies & auth headers
 }));
 
