@@ -8,7 +8,15 @@ import cookieParser from 'cookie-parser'
 // const app=express()
 import { app, server } from './socket/socket.js'
 import cors from 'cors'
-app.use(cors())
+
+
+
+const allowedOrigins = ['http://localhost:3000', 'https://your-frontend-domain.com'];
+app.use(cors({
+    origin: allowedOrigins,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    credentials: true // ✅ Allows cookies & auth headers
+}));
 
 const PORT=5000
 app.use(express.json())
