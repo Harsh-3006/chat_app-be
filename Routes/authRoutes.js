@@ -2,7 +2,7 @@ import express from "express";
 import bcryptjs from 'bcryptjs'
 const router=express.Router()
 import User from "../Model/userSchema.js";
-// import generateTokenAndSetCookie from "../utils/generateToken.js";
+import generateTokenAndSetCookie from "../utils/generateToken.js";
 import jwt from 'jsonwebtoken'
 
 
