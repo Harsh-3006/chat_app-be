@@ -7,7 +7,7 @@ import userRoutes from './Routes/userRoutes.js'
 import cookieParser from 'cookie-parser'
 // const app=express()
 import { app, server } from './socket/socket.js'
-// import cors from 'cors'
+import cors from 'cors'
 app.use(cors())
 
 const PORT=5000
