@@ -31,12 +31,13 @@ router.post("/signup",async (req,res)=>{
             username,
             password:hashpassword,
             gender,
-            profilePic:gender==='male'?boyProfilePic:girlProfilePic
+            profilePic:gender==='male'?boyProfilePic:girlProfilePic,
+            auth:token
         })
         
         //genereate jwt token
         generateTokenAndSetCookie(newUser._id,res)
-        // const token=jwt.sign(newUser._id,process.env.JWT_SECRET)
+        const token=jwt.sign(newUser._id,process.env.JWT_SECRET)
         await newUser.save()
 
         
@@ -45,7 +46,7 @@ router.post("/signup",async (req,res)=>{
             fullname:newUser.fullname,
             username:newUser.username,
             profilePic:newUser.profilePic,
-            // auth:token
+            auth:token
         })
 
     } catch (error) {
