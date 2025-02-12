@@ -35,8 +35,8 @@ router.post("/signup",async (req,res)=>{
         })
         
         //genereate jwt token
-        // generateTokenAndSetCookie(newUser._id,res)
-        const token=jwt.sign(newUser._id,process.env.JWT_SECRET)
+        generateTokenAndSetCookie(newUser._id,res)
+        // const token=jwt.sign(newUser._id,process.env.JWT_SECRET)
         await newUser.save()
 
         
