@@ -2,7 +2,9 @@ import express from "express";
 import bcryptjs from 'bcryptjs'
 const router=express.Router()
 import User from "../Model/userSchema.js";
-import generateTokenAndSetCookie from "../utils/generateToken.js";
+// import generateTokenAndSetCookie from "../utils/generateToken.js";
+import jwt from 'jsonwebtoken'
+
 
 //signup
 router.post("/signup",async (req,res)=>{
@@ -33,7 +35,8 @@ router.post("/signup",async (req,res)=>{
         })
         
         //genereate jwt token
-        generateTokenAndSetCookie(newUser._id,res)
+        // generateTokenAndSetCookie(newUser._id,res)
+        const token=jwt.sign(newUser._id,process.env.JWT_SECRET)
         await newUser.save()
 
         
@@ -41,7 +44,8 @@ router.post("/signup",async (req,res)=>{
             _id:newUser._id,
             fullname:newUser.fullname,
             username:newUser.username,
-            profilePic:newUser.profilePic
+            profilePic:newUser.profilePic,
+            auth:token
         })
 
     } catch (error) {
@@ -68,8 +72,8 @@ router.post("/signin",async(req,res)=>{
             return res.status(400).json({error:"Invalid password or username"})
         }
 
-        generateTokenAndSetCookie(user._id,res)
-
+        // generateTokenAndSetCookie(user._id,res)
+        jwt
         res.status(200).json({
             _id:user._id,
             fullname:user.fullname,

@@ -3,7 +3,7 @@ import User from "../Model/userSchema.js";
 
 const protectRoute=async(req,res,next)=>{
     try {
-        const token=req.cookies.jwt;
+        const token=req.header('auth');
         if(!token){
             return res.status(401).json({error:"no token provided"})
         }
