@@ -12,7 +12,14 @@ import cors from 'cors'
 
 
 // const allowedOrigins = ['http://localhost:3000', 'https://your-frontend-domain.com'];
-app.use(cors());
+// app.use(cors());
+app.use(
+    cors({
+      origin: "http://localhost:3000", // Allow frontend origin
+      methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
+      credentials: true, // Allow cookies/auth headers
+    })
+  );
 
 const PORT=5000
 app.use(express.json())
