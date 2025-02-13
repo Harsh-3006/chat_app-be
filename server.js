@@ -15,7 +15,7 @@ import cors from 'cors'
 // app.use(cors());
 app.use(
     cors({
-      origin: "http://localhost:3000", // Allow frontend origin
+      origin:  ['http://localhost:3000', 'https://chattingwithharsh.netlify.app'], // Allow frontend origin
       methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
       credentials: true, // Allow cookies/auth headers
     })
