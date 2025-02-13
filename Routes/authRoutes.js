@@ -36,8 +36,8 @@ router.post("/signup",async (req,res)=>{
         })
         
         //genereate jwt token
-        generateTokenAndSetCookie(newUser._id,res)
-        const token=jwt.sign(newUser._id,process.env.JWT_SECRET)
+        const token=generateTokenAndSetCookie(newUser._id,res)
+        // const token=jwt.sign(newUser._id,process.env.JWT_SECRET)
         await newUser.save()
 
         
@@ -73,13 +73,14 @@ router.post("/signin",async(req,res)=>{
             return res.status(400).json({error:"Invalid password or username"})
         }
 
-        // generateTokenAndSetCookie(user._id,res)
-        jwt
+        const token=generateTokenAndSetCookie(user._id,res)
+        // jwt
         res.status(200).json({
             _id:user._id,
             fullname:user.fullname,
             username:user.username,
-            profilePic:user.profilePic
+            profilePic:user.profilePic,
+            auth:token
         })
 
     } catch (error) {
